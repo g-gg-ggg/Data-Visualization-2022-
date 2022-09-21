@@ -6,7 +6,7 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: hyeji
+title: Happy
 description: An easy to use blogging platform with support for Jupyter Notebooks.
 github_username: g-gg-ggg
 # you can comment the below line out if your repo name is not different than your baseurl
@@ -41,7 +41,7 @@ minima:
   social_links:
     #twitter: fastdotai
     github: Oppps
-    instargram : immine___666
+    instargram: immine___666
 
 # Set this to true to get LaTeX math equation support
 use_math: ture
