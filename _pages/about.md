@@ -4,10 +4,10 @@ title: About Me
 permalink: /about/
 ---
 
-###it's me
-lisner 
-writer
-student
+### it's me
+- listener 
+- writer
+- student
 
 
 
