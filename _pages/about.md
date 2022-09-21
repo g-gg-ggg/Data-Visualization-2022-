@@ -4,7 +4,9 @@ title: About Me
 permalink: /about/
 ---
 
+##contact
 '-' instargram @immine___666
+'-' email : gptths0627@gmail.com
 
 
 
