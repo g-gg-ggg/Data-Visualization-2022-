@@ -2,7 +2,7 @@
   
     
         "post0": {
-            "title": "과제3",
+            "title": "데이터 시각화3",
             "content": "&#47928;&#51228;1 . import matplotlib.pyplot as plt import numpy as np . fig, axs = plt.subplots(2, 3) . x,y = [1,2,3,4], [1,2,4,3] axs[0,0].plot(x, y,&#39;or&#39;) axs[1,0].plot(x, y,&#39;--or&#39;) axs[0,1].plot(x, y,&#39;og&#39;) axs[1,1].plot(x, y,&#39;--og&#39;) axs[0,2].plot(x, y,&#39;ob&#39;) axs[1,2].plot(x, y,&#39;--ob&#39;) fig . &#47928;&#51228;2 . fig = plt.figure() ax1 = fig.add_axes([0.5,0.5,1,1]) # (0,0)의 위치에 (1,1)인 액시즈(=네모틀)을 만들어라. ax2 = fig.add_axes([1.0,1.0,1,1]) ax3 = fig.add_axes([1.5,1.5,1,1]) ax1,ax2,ax3 = fig.axes fig.axes . [&lt;Axes:&gt;, &lt;Axes:&gt;, &lt;Axes:&gt;] . x,y = [1,2,3,4], [1,2,1,1] ax1.plot(x, y, &quot;or&quot;) ax2.plot(x, y, &quot;og&quot;) ax3.plot(x, y, &quot;ob&quot;) fig . &#47928;&#51228; 3 . x = np.arange(-5,5,0.1) y1 = np.sin(x) y2 = np.sin(2*x) + 2 y3 = np.sin(4*x) + 4 y4 = np.sin(8*x) + 6 . plt.plot(x, y1, &quot;--r&quot;) plt.plot(x, y2, &quot;--g&quot;) plt.plot(x, y3, &quot;--b&quot;) plt.plot(x, y4, &quot;--m&quot;) . [&lt;matplotlib.lines.Line2D at 0x7fd28a798400&gt;] .",
             "url": "https://g-gg-ggg.github.io/Oppps/python/2022/09/22/fig-axes.html",
             "relUrl": "/python/2022/09/22/fig-axes.html",
