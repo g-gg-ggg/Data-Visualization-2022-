@@ -4,9 +4,9 @@
         "post0": {
             "title": "Title",
             "content": "import numpy as np import matplotlib.pyplot as plt import pandas as pd . np.random.seed(43052) ϵ = np.random.randn(100) . plt.plot(np.arange(1,101),ϵ,&#39;--o&#39;) . [&lt;matplotlib.lines.Line2D at 0x7fb6e05a3df0&gt;] . (1) $ epsilon_t$ 와 $ epsilon_{t-1}$은 독립이라고 보여지는가? . (2) 아래의 수식을 만족하는 벡터 ${ boldsymbol y} = (y_1,y_2, dots, y_{100})$ 을 생성하라. (단 $y_1= epsilon_1$) . $$ y_t = y_{t-1} + epsilon_t$$ . (3) $(t,y_t)$의 dot-connected plot을 그려라. . (4) $y_t$와 $y_{t-1}$은 독립이라고 볼 수 있는가? .",
-            "url": "https://g-gg-ggg.github.io/Oppps/2022/09/26/Untitled.html",
-            "relUrl": "/2022/09/26/Untitled.html",
-            "date": " • Sep 26, 2022"
+            "url": "https://g-gg-ggg.github.io/Oppps/2022/09/27/%EA%B3%BC%EC%A0%9C(%EC%96%B4%EB%A0%A4%EC%9B%80).html",
+            "relUrl": "/2022/09/27/%EA%B3%BC%EC%A0%9C(%EC%96%B4%EB%A0%A4%EC%9B%80).html",
+            "date": " • Sep 27, 2022"
         }
         
     
