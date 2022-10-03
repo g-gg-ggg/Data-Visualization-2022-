@@ -4,9 +4,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>데이터 시각화 과제 | STUDY HARD</title>
+<title>데이터 시각화 과제 3 | STUDY HARD</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="데이터 시각화 과제" />
+<meta property="og:title" content="데이터 시각화 과제 3" />
 <meta name="author" content="김혜지" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="무상관과 독립" />
@@ -17,9 +17,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-09-27T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="데이터 시각화 과제" />
+<meta property="twitter:title" content="데이터 시각화 과제 3" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"김혜지"},"dateModified":"2022-09-27T00:00:00-05:00","datePublished":"2022-09-27T00:00:00-05:00","description":"무상관과 독립","headline":"데이터 시각화 과제","mainEntityOfPage":{"@type":"WebPage","@id":"https://g-gg-ggg.github.io/Oppps/python/2022/09/27/%EA%B3%BC%EC%A0%9C3(%EC%96%B4%EB%A0%A4%EC%9B%80).html"},"url":"https://g-gg-ggg.github.io/Oppps/python/2022/09/27/%EA%B3%BC%EC%A0%9C3(%EC%96%B4%EB%A0%A4%EC%9B%80).html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"김혜지"},"dateModified":"2022-09-27T00:00:00-05:00","datePublished":"2022-09-27T00:00:00-05:00","description":"무상관과 독립","headline":"데이터 시각화 과제 3","mainEntityOfPage":{"@type":"WebPage","@id":"https://g-gg-ggg.github.io/Oppps/python/2022/09/27/%EA%B3%BC%EC%A0%9C3(%EC%96%B4%EB%A0%A4%EC%9B%80).html"},"url":"https://g-gg-ggg.github.io/Oppps/python/2022/09/27/%EA%B3%BC%EC%A0%9C3(%EC%96%B4%EB%A0%A4%EC%9B%80).html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/Oppps/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://g-gg-ggg.github.io/Oppps/feed.xml" title="STUDY HARD" /><link rel="shortcut icon" type="image/x-icon" href="/Oppps/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -90,7 +90,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">데이터 시각화 과제</h1><p class="page-description">무상관과 독립</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-27T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">데이터 시각화 과제 3</h1><p class="page-description">무상관과 독립</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-27T00:00:00-05:00" itemprop="datePublished">
         Sep 27, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -327,6 +327,85 @@ $$ y_t = y_{t-1} + \epsilon_t$$
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ϵ1</span> <span class="o">=</span> <span class="n">ϵ</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#t-1의 시점</span>
+<span class="n">ϵ2</span> <span class="o">=</span> <span class="n">ϵ</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="c1">#t의 시점</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y1</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#t-1의 시점</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="c1">#t의 시점</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s1">'.'</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;matplotlib.lines.Line2D at 0x7fc7395b9fa0&gt;]</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -335,10 +414,44 @@ $$ y_t = y_{t-1} + \epsilon_t$$
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[1.        , 0.97237553],
+       [0.97237553, 1.        ]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$y_{t-1}$이 변할때 $y_t$가 변하기에 독립이라고 볼 수 없다</p>
+<p>$y_{t-1}$이 변할 때 $y_t$가 변하므로 독립이 아니다.</p>
 
 </div>
 </div>
