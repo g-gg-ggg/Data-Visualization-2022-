@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "데이터 시각화 과제 4",
-            "content": "import pandas as pd import numpy as np import seaborn as sns import matplotlib.pyplot as plt . 아래의 그림에 대응하는 그림을 seaborn을 이용하여 그려라 . y1 = np.random.randn(90).cumsum() y2 = np.random.randn(120).cumsum() . plt.plot(y1,&#39;--o&#39;) plt.plot(y2,&#39;--o&#39;) . [&lt;matplotlib.lines.Line2D at 0x7fabfa22d1f0&gt;] . df = pd.DataFrame({&#39;index&#39; : list(range(90))+list(range(120)), &#39;val&#39; : np.concatenate([y1,y2]), &#39;cat&#39; : [&quot;y1&quot;]*90+[&quot;y2&quot;]*120}) . df . index val cat . 0 0 | -1.466647 | y1 | . 1 1 | -1.848080 | y1 | . 2 2 | -2.274827 | y1 | . 3 3 | -1.837147 | y1 | . 4 4 | -2.870877 | y1 | . ... ... | ... | ... | . 205 115 | 4.090783 | y2 | . 206 116 | 6.567499 | y2 | . 207 117 | 6.142351 | y2 | . 208 118 | 6.433223 | y2 | . 209 119 | 5.519599 | y2 | . 210 rows × 3 columns . sns.lineplot(data = df, x = &quot;index&quot;, y= &quot;val&quot;, hue = &quot;cat&quot;) . &lt;AxesSubplot:xlabel=&#39;index&#39;, ylabel=&#39;val&#39;&gt; . sns.lineplot(data = df, x = &quot;index&quot;, y= &quot;val&quot;, hue = &quot;cat&quot;, ) . &lt;AxesSubplot:xlabel=&#39;index&#39;, ylabel=&#39;val&#39;&gt; .",
+            "content": "import pandas as pd import numpy as np import seaborn as sns import matplotlib.pyplot as plt . 아래의 그림에 대응하는 그림을 seaborn을 이용하여 그려라 . y1 = np.random.randn(90).cumsum() y2 = np.random.randn(120).cumsum() . plt.plot(y1,&#39;--o&#39;) plt.plot(y2,&#39;--o&#39;) . [&lt;matplotlib.lines.Line2D at 0x7fbec8cea580&gt;] . df = pd.DataFrame({&#39;index&#39; : list(range(90))+list(range(120)), &#39;val&#39; : np.concatenate([y1,y2]), &#39;cat&#39; : [&quot;y1&quot;]*90+[&quot;y2&quot;]*120}) . df . index val cat . 0 0 | 0.523023 | y1 | . 1 1 | -0.155120 | y1 | . 2 2 | -1.341797 | y1 | . 3 3 | -2.023291 | y1 | . 4 4 | -2.511347 | y1 | . ... ... | ... | ... | . 205 115 | -17.603233 | y2 | . 206 116 | -18.480129 | y2 | . 207 117 | -18.433816 | y2 | . 208 118 | -19.191050 | y2 | . 209 119 | -18.815052 | y2 | . 210 rows × 3 columns . sns.lineplot(data = df, x = &quot;index&quot;, y= &quot;val&quot;, hue = &quot;cat&quot;) . &lt;AxesSubplot:xlabel=&#39;index&#39;, ylabel=&#39;val&#39;&gt; . sns.lineplot(data = df, x =&quot;index&quot;, y = &quot;val&quot;, style = &quot;cat&quot;, hue = &quot;cat&quot;, dashes = [(5,1),(9,3)], markers = [&quot;o&quot;,&quot;o&quot;], markersize = 9) . &lt;AxesSubplot:xlabel=&#39;index&#39;, ylabel=&#39;val&#39;&gt; .",
             "url": "https://g-gg-ggg.github.io/Oppps/python/2022/10/03/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8B%9C%EA%B0%81%ED%99%94-%EA%B3%BC%EC%A0%9C4.html",
             "relUrl": "/python/2022/10/03/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8B%9C%EA%B0%81%ED%99%94-%EA%B3%BC%EC%A0%9C4.html",
             "date": " • Oct 3, 2022"
@@ -26,9 +26,9 @@
         ,"post2": {
             "title": "더하기",
             "content": "1+1 . 2 . 2+3 . 5 .",
-            "url": "https://g-gg-ggg.github.io/Oppps/2022/10/02/test.html",
-            "relUrl": "/2022/10/02/test.html",
-            "date": " • Oct 2, 2022"
+            "url": "https://g-gg-ggg.github.io/Oppps/2022/10/03/test.html",
+            "relUrl": "/2022/10/03/test.html",
+            "date": " • Oct 3, 2022"
         }
         
     
