@@ -9,8 +9,8 @@
 <meta property="og:title" content="데이터 시각화 7" />
 <meta name="author" content="김혜지" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="10월 12일 lambda, map" />
-<meta property="og:description" content="10월 12일 lambda, map" />
+<meta name="description" content="10월 12일 lambda, map, 판다스 - 인덱싱(1)" />
+<meta property="og:description" content="10월 12일 lambda, map, 판다스 - 인덱싱(1)" />
 <link rel="canonical" href="https://g-gg-ggg.github.io/Oppps/python/2022/10/17/lambda.html" />
 <meta property="og:url" content="https://g-gg-ggg.github.io/Oppps/python/2022/10/17/lambda.html" />
 <meta property="og:site_name" content="STUDY HARD" />
@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="데이터 시각화 7" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"김혜지"},"dateModified":"2022-10-17T00:00:00-05:00","datePublished":"2022-10-17T00:00:00-05:00","description":"10월 12일 lambda, map","headline":"데이터 시각화 7","mainEntityOfPage":{"@type":"WebPage","@id":"https://g-gg-ggg.github.io/Oppps/python/2022/10/17/lambda.html"},"url":"https://g-gg-ggg.github.io/Oppps/python/2022/10/17/lambda.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"김혜지"},"dateModified":"2022-10-17T00:00:00-05:00","datePublished":"2022-10-17T00:00:00-05:00","description":"10월 12일 lambda, map, 판다스 - 인덱싱(1)","headline":"데이터 시각화 7","mainEntityOfPage":{"@type":"WebPage","@id":"https://g-gg-ggg.github.io/Oppps/python/2022/10/17/lambda.html"},"url":"https://g-gg-ggg.github.io/Oppps/python/2022/10/17/lambda.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/Oppps/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://g-gg-ggg.github.io/Oppps/feed.xml" title="STUDY HARD" /><link rel="shortcut icon" type="image/x-icon" href="/Oppps/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -90,7 +90,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">데이터 시각화 7</h1><p class="page-description">10월 12일 lambda, map</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-17T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">데이터 시각화 7</h1><p class="page-description">10월 12일 lambda, map, 판다스 - 인덱싱(1)</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-17T00:00:00-05:00" itemprop="datePublished">
         Oct 17, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -98,7 +98,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      13 min read
     
 </span></p>
 
@@ -156,7 +156,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#컨셉-4:-데이터프레임-느낌">컨셉 4: 데이터프레임 느낌 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#df:-인덱싱-2단계---필터링(특정조건에-맞는-row를-선택)">df: 인덱싱 2단계-- 필터링(특정조건에 맞는 row를 선택) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#df:-인덱싱-2단계---필터링(특정조건에-맞는-row를-선택)">df: 인덱싱 2단계-- 필터링(특정조건에 맞는 row를 선택) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#att->-mean(att)">att &gt; mean(att) </a></li>
 </ul>
 </li>
 </ul><!--
@@ -3590,9 +3594,9 @@ Name: att, Length: 200, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="df:-인덱싱-2단계---필터링(특정조건에-맞는-row를-선택)">
+<h1 id="df:-인덱싱-2단계---필터링(특정조건에-맞는-row를-선택)">
 <a class="anchor" href="#df:-%EC%9D%B8%EB%8D%B1%EC%8B%B1-2%EB%8B%A8%EA%B3%84---%ED%95%84%ED%84%B0%EB%A7%81(%ED%8A%B9%EC%A0%95%EC%A1%B0%EA%B1%B4%EC%97%90-%EB%A7%9E%EB%8A%94-row%EB%A5%BC-%EC%84%A0%ED%83%9D)" aria-hidden="true"><span class="octicon octicon-link"></span></a>df: 인덱싱 2단계-- 필터링(특정조건에 맞는 row를 선택)<a class="anchor-link" href="#df:-%EC%9D%B8%EB%8D%B1%EC%8B%B1-2%EB%8B%A8%EA%B3%84---%ED%95%84%ED%84%B0%EB%A7%81(%ED%8A%B9%EC%A0%95%EC%A1%B0%EA%B1%B4%EC%97%90-%EB%A7%9E%EB%8A%94-row%EB%A5%BC-%EC%84%A0%ED%83%9D)"> </a>
-</h2>
+</h1>
 <p>att &gt; 90 and rep &lt; 50</p>
 
 </div>
@@ -3608,6 +3612,1636 @@ Name: att, Length: 200, dtype: int64</pre>
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#df.rep</span>
+<span class="c1">#(df.att &gt; 90) &amp; (df.rep &lt; 50)</span>
+
+<span class="c1">#df[(df.att &gt; 90) &amp; (df.rep &lt; 50)]</span>
+<span class="c1">#df.query('(att&gt;90)&amp;(rep&lt;50)')</span>
+<span class="c1">#df.query('att&gt;90 &amp; rep&lt;50') </span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'att&gt;90 and rep&lt;50'</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>95</td>
+      <td>30</td>
+      <td>60</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>95</td>
+      <td>35</td>
+      <td>0</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>95</td>
+      <td>45</td>
+      <td>35</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>95</td>
+      <td>25</td>
+      <td>95</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>95</td>
+      <td>45</td>
+      <td>90</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>100</td>
+      <td>30</td>
+      <td>60</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>100</td>
+      <td>35</td>
+      <td>70</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>95</td>
+      <td>45</td>
+      <td>55</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>100</td>
+      <td>25</td>
+      <td>10</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>100</td>
+      <td>40</td>
+      <td>40</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>100</td>
+      <td>30</td>
+      <td>70</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>100</td>
+      <td>30</td>
+      <td>30</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>95</td>
+      <td>35</td>
+      <td>40</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>100</td>
+      <td>40</td>
+      <td>80</td>
+      <td>80</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>방법 2: [], .iloc, .loc</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">att</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rep</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">)]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">att</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rep</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">)]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">list</span><span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">att</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rep</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">))]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>95</td>
+      <td>30</td>
+      <td>60</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>95</td>
+      <td>35</td>
+      <td>0</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>95</td>
+      <td>45</td>
+      <td>35</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>95</td>
+      <td>25</td>
+      <td>95</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>95</td>
+      <td>45</td>
+      <td>90</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>100</td>
+      <td>30</td>
+      <td>60</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>100</td>
+      <td>35</td>
+      <td>70</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>95</td>
+      <td>45</td>
+      <td>55</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>100</td>
+      <td>25</td>
+      <td>10</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>100</td>
+      <td>40</td>
+      <td>40</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>100</td>
+      <td>30</td>
+      <td>70</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>100</td>
+      <td>30</td>
+      <td>30</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>95</td>
+      <td>35</td>
+      <td>40</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>100</td>
+      <td>40</td>
+      <td>80</td>
+      <td>80</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>방법3: [], .iloc, .loc // map, lambda</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">90</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">y</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">),</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">rep</span><span class="p">))]</span>
+<span class="c1"># df[map(lambda x,y: (x&gt;90)&amp;(y&lt;50), df.att, df.rep)] # 이것은 불가능 </span>
+<span class="c1">#리스트를 한 다음에 df를 취하기</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>95</td>
+      <td>30</td>
+      <td>60</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>95</td>
+      <td>35</td>
+      <td>0</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>95</td>
+      <td>45</td>
+      <td>35</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>95</td>
+      <td>25</td>
+      <td>95</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>95</td>
+      <td>45</td>
+      <td>90</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>100</td>
+      <td>30</td>
+      <td>60</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>100</td>
+      <td>35</td>
+      <td>70</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>95</td>
+      <td>45</td>
+      <td>55</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>100</td>
+      <td>25</td>
+      <td>10</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>100</td>
+      <td>40</td>
+      <td>40</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>100</td>
+      <td>30</td>
+      <td>70</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>100</td>
+      <td>30</td>
+      <td>30</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>95</td>
+      <td>35</td>
+      <td>40</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>100</td>
+      <td>40</td>
+      <td>80</td>
+      <td>80</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">90</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">y</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">),</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">rep</span><span class="p">))]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">90</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">y</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">),</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">rep</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>95</td>
+      <td>30</td>
+      <td>60</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>95</td>
+      <td>35</td>
+      <td>0</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>95</td>
+      <td>45</td>
+      <td>35</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>95</td>
+      <td>25</td>
+      <td>95</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>95</td>
+      <td>45</td>
+      <td>90</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>100</td>
+      <td>30</td>
+      <td>60</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>100</td>
+      <td>35</td>
+      <td>70</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>95</td>
+      <td>45</td>
+      <td>55</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>100</td>
+      <td>25</td>
+      <td>10</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>100</td>
+      <td>40</td>
+      <td>40</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>100</td>
+      <td>30</td>
+      <td>70</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>100</td>
+      <td>30</td>
+      <td>30</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>95</td>
+      <td>35</td>
+      <td>40</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>100</td>
+      <td>40</td>
+      <td>80</td>
+      <td>80</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">90</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">y</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">),</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">rep</span><span class="p">))]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">90</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">y</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">),</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">rep</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>95</td>
+      <td>30</td>
+      <td>60</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>95</td>
+      <td>35</td>
+      <td>0</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>95</td>
+      <td>45</td>
+      <td>35</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>95</td>
+      <td>25</td>
+      <td>95</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>95</td>
+      <td>45</td>
+      <td>90</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>100</td>
+      <td>30</td>
+      <td>60</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>100</td>
+      <td>35</td>
+      <td>70</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>95</td>
+      <td>45</td>
+      <td>55</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>100</td>
+      <td>25</td>
+      <td>10</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>100</td>
+      <td>40</td>
+      <td>40</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>100</td>
+      <td>30</td>
+      <td>70</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>100</td>
+      <td>30</td>
+      <td>30</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>95</td>
+      <td>35</td>
+      <td>40</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>100</td>
+      <td>40</td>
+      <td>80</td>
+      <td>80</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"><code>.</code></th>
+<th style="text-align:center"><code>[]</code></th>
+<th style="text-align:center"><code>.iloc</code></th>
+<th style="text-align:center"><code>.loc</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">row/단일레이블</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+</tr>
+<tr>
+<td style="text-align:center">col/단일레이블</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+</tr>
+<tr>
+<td style="text-align:center">row/레이블리스트</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+</tr>
+<tr>
+<td style="text-align:center">col/레이블리스트</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+</tr>
+<tr>
+<td style="text-align:center">row/슬라이싱</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+</tr>
+<tr>
+<td style="text-align:center">col/슬라이싱</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+</tr>
+<tr>
+<td style="text-align:center">row/bool,list</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+</tr>
+<tr>
+<td style="text-align:center">row/bool,ser</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">O</td>
+</tr>
+<tr>
+<td style="text-align:center">row/bool,map</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">O</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="att-&gt;-mean(att)">
+<a class="anchor" href="#att-&gt;-mean(att)" aria-hidden="true"><span class="octicon octicon-link"></span></a>att &gt; mean(att)<a class="anchor-link" href="#att-&gt;-mean(att)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>방법1: .query()를 이용</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'att&gt; att.mean()'</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>95</td>
+      <td>30</td>
+      <td>60</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>80</td>
+      <td>60</td>
+      <td>55</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>95</td>
+      <td>55</td>
+      <td>65</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>90</td>
+      <td>25</td>
+      <td>95</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>95</td>
+      <td>60</td>
+      <td>25</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>100</td>
+      <td>30</td>
+      <td>30</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>95</td>
+      <td>35</td>
+      <td>40</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>100</td>
+      <td>40</td>
+      <td>80</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>85</td>
+      <td>85</td>
+      <td>100</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>80</td>
+      <td>65</td>
+      <td>35</td>
+      <td>60</td>
+    </tr>
+  </tbody>
+</table>
+<p>95 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>방법2: [], .iloc, .loc</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">att</span> <span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="o">.</span><span class="n">mean</span><span class="p">()]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">att</span> <span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="o">.</span><span class="n">mean</span><span class="p">()]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">att</span> <span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="o">.</span><span class="n">mean</span><span class="p">())]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>95</td>
+      <td>30</td>
+      <td>60</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>80</td>
+      <td>60</td>
+      <td>55</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>95</td>
+      <td>55</td>
+      <td>65</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>90</td>
+      <td>25</td>
+      <td>95</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>95</td>
+      <td>60</td>
+      <td>25</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>100</td>
+      <td>30</td>
+      <td>30</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>95</td>
+      <td>35</td>
+      <td>40</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>100</td>
+      <td>40</td>
+      <td>80</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>85</td>
+      <td>85</td>
+      <td>100</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>80</td>
+      <td>65</td>
+      <td>35</td>
+      <td>60</td>
+    </tr>
+  </tbody>
+</table>
+<p>95 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>방법3: [], .iloc, .loc // map, lambda</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">&gt;</span><span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="p">))]</span>
+<span class="c1"># df[map(lambda x: x&gt;df.att.mean() , df.att)] # 이것은 불가능</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>95</td>
+      <td>30</td>
+      <td>60</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>80</td>
+      <td>60</td>
+      <td>55</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>95</td>
+      <td>55</td>
+      <td>65</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>90</td>
+      <td>25</td>
+      <td>95</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>95</td>
+      <td>60</td>
+      <td>25</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>100</td>
+      <td>30</td>
+      <td>30</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>95</td>
+      <td>35</td>
+      <td>40</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>100</td>
+      <td>40</td>
+      <td>80</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>85</td>
+      <td>85</td>
+      <td>100</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>80</td>
+      <td>65</td>
+      <td>35</td>
+      <td>60</td>
+    </tr>
+  </tbody>
+</table>
+<p>95 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">&gt;</span><span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="p">))]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">&gt;</span><span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>95</td>
+      <td>30</td>
+      <td>60</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>80</td>
+      <td>60</td>
+      <td>55</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>95</td>
+      <td>55</td>
+      <td>65</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>90</td>
+      <td>25</td>
+      <td>95</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>95</td>
+      <td>60</td>
+      <td>25</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>100</td>
+      <td>30</td>
+      <td>30</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>95</td>
+      <td>35</td>
+      <td>40</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>100</td>
+      <td>40</td>
+      <td>80</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>85</td>
+      <td>85</td>
+      <td>100</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>80</td>
+      <td>65</td>
+      <td>35</td>
+      <td>60</td>
+    </tr>
+  </tbody>
+</table>
+<p>95 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">&gt;</span><span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="p">))]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">&gt;</span><span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">att</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>att</th>
+      <th>rep</th>
+      <th>mid</th>
+      <th>fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>95</td>
+      <td>30</td>
+      <td>60</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>80</td>
+      <td>60</td>
+      <td>55</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>95</td>
+      <td>55</td>
+      <td>65</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>90</td>
+      <td>25</td>
+      <td>95</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>95</td>
+      <td>60</td>
+      <td>25</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>100</td>
+      <td>30</td>
+      <td>30</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>95</td>
+      <td>35</td>
+      <td>40</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>100</td>
+      <td>40</td>
+      <td>80</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>85</td>
+      <td>85</td>
+      <td>100</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>80</td>
+      <td>65</td>
+      <td>35</td>
+      <td>60</td>
+    </tr>
+  </tbody>
+</table>
+<p>95 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
